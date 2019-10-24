@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- <script src="../static/js/jquery.js"></script> -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.3.0-rc.2/echarts.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.3.0-rc.2/extension/dataTool.min.js"></script>
+
+</head>
+
+
+<body>
+<div id="chart" style="height: 1500px;width: 1500px;"></div>
+
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById("chart"));
+    var getRandomColor = function(){
+        return '#'+Math.floor(Math.random()*16777215).toString(16);
+    }
+    myChart.showLoading();
+    $.get( '/file/weight1000WeightTop10.gexf', function (xml) {
+        myChart.hideLoading();
+
+        var graph = echarts.dataTool.gexf.parse(xml);
+        console.log(graph);
+
+        graph.nodes.forEach(function (node) {
+            node.itemStyle = {
+                normal: {
+                    color: getRandomColor()
+                }
+            };
+            node.value = node.attributes.degree;
+            node.symbolSize =node.value;
+            node.label = {
+                normal: {
+                    show:true,
+                    textStyle:{
+                        fontSize:20
+                    }
+                }
+            };
+
+        });
+        graph.links.forEach(function (link) {
+            link.lineStyle={
+                normal: {
+                    width: parseInt(link.name)/3000,
+                    curveness: 0.3,
+                    opacity: 0.9
+                },
+                emphasis: {
+                    width:parseInt(link.name)/3000*3
+
+                }
+            };
+            link.label={
+                normal:{
+                    show:true,
+                    formatter:function (link) {
+                        return link.data.name;
+                    }
+                }
+            }
+        });
+        option = {
+            title: {
+                text: 'Les Miserables',
+                subtext: 'Default layout',
+                top: 'bottom',
+                left: 'right'
+            },
+            tooltip: {
+                // trigger: 'item',
+                // formatter: function (params) {//连接线上提示文字格式化
+                //     // if (params.data.source) {//注意判断，else是将节点的文字也初始化成想要的格式
+                //     //     return params.data.source + '是【' + params.data.target + '】的居间人';
+                //     // }
+                //     // else {
+                //     //     return params.name;
+                //     // }
+                // }
+            },
+            animationDuration: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series : [
+                {
+                    type: 'graph',
+                    layout: 'none',
+                    // progressiveThreshold: 700,
+                    data: graph.nodes,
+                    edges: graph.links,
+                    label: {
+                        emphasis: {
+                            position: 'right',
+                            show: true
+                        }
+                    },
+                    roam: true,
+                    focusNodeAdjacency: true,
+                    lineStyle: {
+
+                    }
+                }
+            ]};
+
+        myChart.setOption(option);
+    }, 'xml');
+
+</script>
+
+
+</html>

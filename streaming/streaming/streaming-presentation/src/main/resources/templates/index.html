@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+    <script src="../static/js/request.js" th:src="@{/js/request.js}"></script>
+    <script src="../static/js/echarts.min.js" th:src="@{/js/echarts.min.js}"></script>
+    <script src="../static/js/echarts-wordcloud.min.js" th:src="@{/js/echarts-wordcloud.min.js}"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="wordCloud" style="height: 400px;width: 400px">
+        </div>
+        <div id="job-class-wordcloud" style="height: 400px;width: 400px">
+        </div>
+        <div id="edu" style="height: 700px;width: 600px">
+        </div>
+        <div id="jobClassBar" style="height: 600px;width: 1200px">
+        </div>
+        <div id="cityBar" style="height: 600px;width: 1200px">
+        </div>
+    </div>
+
+</body>
+<script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+<style>
+    #content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+
+    }
+</style>
+</html>

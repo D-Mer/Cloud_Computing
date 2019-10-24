@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3" version="1.3" xmlns:viz="http://www.gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.3 http://www.gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2019-10-15">
+    <creator>Gephi 0.9</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="name" title="name" type="string"></attribute>
+      <attribute id="degree" title="degree" type="integer"></attribute>
+    </attributes>
+    <nodes>
+      <node id="-3268067683072787167" label="app">
+        <attvalues>
+          <attvalue for="name" value="app"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="353.16043" y="-315.36237"></viz:position>
+      </node>
+      <node id="-9096232754884560930" label="mysql">
+        <attvalues>
+          <attvalue for="name" value="mysql"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="260.7167" y="384.3441"></viz:position>
+      </node>
+      <node id="-4060513158963513109" label="css">
+        <attvalues>
+          <attvalue for="name" value="css"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="76.64462" y="-181.65388"></viz:position>
+      </node>
+      <node id="-6026813875032476846" label="sql">
+        <attvalues>
+          <attvalue for="name" value="sql"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-368.40768" y="-307.59732"></viz:position>
+      </node>
+      <node id="-9189283624875180872" label="http">
+        <attvalues>
+          <attvalue for="name" value="http"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="446.62057" y="189.71591"></viz:position>
+      </node>
+      <node id="-3304550021239131016" label="jquery">
+        <attvalues>
+          <attvalue for="name" value="jquery"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="457.7278" y="-79.288025"></viz:position>
+      </node>
+      <node id="-273033171021384035" label="html">
+        <attvalues>
+          <attvalue for="name" value="html"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-477.2599" y="-51.54675"></viz:position>
+      </node>
+      <node id="-7784712059813151204" label="java">
+        <attvalues>
+          <attvalue for="name" value="java"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-141.82634" y="-437.33517"></viz:position>
+      </node>
+      <node id="-6806691435797463535" label="oracle">
+        <attvalues>
+          <attvalue for="name" value="oracle"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-77.089554" y="181.46869"></viz:position>
+      </node>
+      <node id="3645692567939266464" label="js">
+        <attvalues>
+          <attvalue for="name" value="js"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-179.86368" y="-76.16015"></viz:position>
+      </node>
+      <node id="2695305337569098618" label="web">
+        <attvalues>
+          <attvalue for="name" value="web"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="122.845436" y="-469.83563"></viz:position>
+      </node>
+      <node id="-5904698658142210447" label="bug">
+        <attvalues>
+          <attvalue for="name" value="bug"></attvalue>
+          <attvalue for="degree" value="14"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="174.39609" y="73.82331"></viz:position>
+      </node>
+      <node id="2589265509983531627" label="python">
+        <attvalues>
+          <attvalue for="name" value="python"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="18.286015" y="473.24863"></viz:position>
+      </node>
+      <node id="-2159857214311285554" label="linux">
+        <attvalues>
+          <attvalue for="name" value="linux"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-252.81807" y="414.57285"></viz:position>
+      </node>
+      <node id="-2406154927270380003" label="javascript">
+        <attvalues>
+          <attvalue for="name" value="javascript"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-413.13254" y="201.6059"></viz:position>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="26" source="-6806691435797463535" target="-5904698658142210447" label="723" weight="723.0"></edge>
+      <edge id="27" source="-5904698658142210447" target="-4060513158963513109" label="673" weight="673.0"></edge>
+      <edge id="28" source="-5904698658142210447" target="-3268067683072787167" label="1132" weight="1132.0"></edge>
+      <edge id="29" source="-5904698658142210447" target="-2406154927270380003" label="940" weight="940.0"></edge>
+      <edge id="30" source="-5904698658142210447" target="2589265509983531627" label="882" weight="882.0"></edge>
+      <edge id="31" source="-5904698658142210447" target="3645692567939266464" label="511" weight="511.0"></edge>
+      <edge id="32" source="-9189283624875180872" target="-5904698658142210447" label="571" weight="571.0"></edge>
+      <edge id="33" source="-7784712059813151204" target="-5904698658142210447" label="1572" weight="1572.0"></edge>
+      <edge id="34" source="-6026813875032476846" target="-5904698658142210447" label="1061" weight="1061.0"></edge>
+      <edge id="35" source="-5904698658142210447" target="-2159857214311285554" label="1251" weight="1251.0"></edge>
+      <edge id="36" source="-5904698658142210447" target="-273033171021384035" label="629" weight="629.0"></edge>
+      <edge id="37" source="-9096232754884560930" target="-5904698658142210447" label="1400" weight="1400.0"></edge>
+      <edge id="38" source="-5904698658142210447" target="-3304550021239131016" label="545" weight="545.0"></edge>
+      <edge id="39" source="-5904698658142210447" target="2695305337569098618" label="1363" weight="1363.0"></edge>
+    </edges>
+  </graph>
+</gexf>

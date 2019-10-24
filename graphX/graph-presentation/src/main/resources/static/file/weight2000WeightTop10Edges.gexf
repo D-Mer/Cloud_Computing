@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3" version="1.3" xmlns:viz="http://www.gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.3 http://www.gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2019-10-15">
+    <creator>Gephi 0.9</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="name" title="name" type="string"></attribute>
+      <attribute id="degree" title="degree" type="integer"></attribute>
+    </attributes>
+    <nodes>
+      <node id="-9096232754884560930" label="mysql">
+        <attvalues>
+          <attvalue for="name" value="mysql"></attvalue>
+          <attvalue for="degree" value="9"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-392.6812" y="137.8005"></viz:position>
+      </node>
+      <node id="-4060513158963513109" label="css">
+        <attvalues>
+          <attvalue for="name" value="css"></attvalue>
+          <attvalue for="degree" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-128.88097" y="-13.050424"></viz:position>
+      </node>
+      <node id="-3304550021239131016" label="jquery">
+        <attvalues>
+          <attvalue for="name" value="jquery"></attvalue>
+          <attvalue for="degree" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="365.73337" y="200.83408"></viz:position>
+      </node>
+      <node id="-8745505558082406655" label="redis">
+        <attvalues>
+          <attvalue for="name" value="redis"></attvalue>
+          <attvalue for="degree" value="6"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="392.724" y="-139.36388"></viz:position>
+      </node>
+      <node id="-273033171021384035" label="html">
+        <attvalues>
+          <attvalue for="name" value="html"></attvalue>
+          <attvalue for="degree" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="111.87855" y="379.0868"></viz:position>
+      </node>
+      <node id="-7784712059813151204" label="java">
+        <attvalues>
+          <attvalue for="name" value="java"></attvalue>
+          <attvalue for="degree" value="9"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="172.43393" y="-352.02914"></viz:position>
+      </node>
+      <node id="2695305337569098618" label="web">
+        <attvalues>
+          <attvalue for="name" value="web"></attvalue>
+          <attvalue for="degree" value="9"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-364.9288" y="-201.10258"></viz:position>
+      </node>
+      <node id="3039183585666478258" label="spring">
+        <attvalues>
+          <attvalue for="name" value="spring"></attvalue>
+          <attvalue for="degree" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-112.232475" y="-378.80936"></viz:position>
+      </node>
+      <node id="-2159857214311285554" label="linux">
+        <attvalues>
+          <attvalue for="name" value="linux"></attvalue>
+          <attvalue for="degree" value="8"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-173.5731" y="352.3952"></viz:position>
+      </node>
+      <node id="-2406154927270380003" label="javascript">
+        <attvalues>
+          <attvalue for="name" value="javascript"></attvalue>
+          <attvalue for="degree" value="9"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="129.52678" y="14.238813"></viz:position>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="2210" source="-9096232754884560930" target="-4060513158963513109" label="4872" weight="4872.0"></edge>
+      <edge id="2211" source="-9096232754884560930" target="3039183585666478258" label="6792" weight="6792.0"></edge>
+      <edge id="2212" source="-8745505558082406655" target="-7784712059813151204" label="6129" weight="6129.0"></edge>
+      <edge id="2213" source="-8745505558082406655" target="3039183585666478258" label="4132" weight="4132.0"></edge>
+      <edge id="2214" source="-7784712059813151204" target="2695305337569098618" label="7241" weight="7241.0"></edge>
+      <edge id="2215" source="-7784712059813151204" target="3039183585666478258" label="9421" weight="9421.0"></edge>
+      <edge id="2216" source="-2406154927270380003" target="2695305337569098618" label="11203" weight="11203.0"></edge>
+      <edge id="2217" source="-9096232754884560930" target="-8745505558082406655" label="9384" weight="9384.0"></edge>
+      <edge id="2218" source="-9096232754884560930" target="-3304550021239131016" label="4239" weight="4239.0"></edge>
+      <edge id="2219" source="-9096232754884560930" target="-2406154927270380003" label="5822" weight="5822.0"></edge>
+      <edge id="2220" source="-9096232754884560930" target="-2159857214311285554" label="10703" weight="10703.0"></edge>
+      <edge id="2221" source="-9096232754884560930" target="-273033171021384035" label="4648" weight="4648.0"></edge>
+      <edge id="2222" source="-9096232754884560930" target="2695305337569098618" label="7179" weight="7179.0"></edge>
+      <edge id="2223" source="-8745505558082406655" target="-2406154927270380003" label="2362" weight="2362.0"></edge>
+      <edge id="2224" source="-8745505558082406655" target="-2159857214311285554" label="5411" weight="5411.0"></edge>
+      <edge id="2225" source="-7784712059813151204" target="-3304550021239131016" label="4039" weight="4039.0"></edge>
+      <edge id="2226" source="-7784712059813151204" target="-2406154927270380003" label="5685" weight="5685.0"></edge>
+      <edge id="2227" source="-4060513158963513109" target="-3304550021239131016" label="7404" weight="7404.0"></edge>
+      <edge id="2228" source="-4060513158963513109" target="-273033171021384035" label="11992" weight="11992.0"></edge>
+      <edge id="2229" source="-2406154927270380003" target="-2159857214311285554" label="3264" weight="3264.0"></edge>
+      <edge id="2230" source="-2406154927270380003" target="3039183585666478258" label="2791" weight="2791.0"></edge>
+      <edge id="2231" source="-2159857214311285554" target="2695305337569098618" label="4763" weight="4763.0"></edge>
+      <edge id="2232" source="-2159857214311285554" target="3039183585666478258" label="3069" weight="3069.0"></edge>
+      <edge id="2233" source="-273033171021384035" target="2695305337569098618" label="8306" weight="8306.0"></edge>
+      <edge id="2234" source="2695305337569098618" target="3039183585666478258" label="3449" weight="3449.0"></edge>
+      <edge id="2235" source="-9096232754884560930" target="-7784712059813151204" label="11346" weight="11346.0"></edge>
+      <edge id="2236" source="-8745505558082406655" target="2695305337569098618" label="3560" weight="3560.0"></edge>
+      <edge id="2237" source="-7784712059813151204" target="-4060513158963513109" label="3904" weight="3904.0"></edge>
+      <edge id="2238" source="-7784712059813151204" target="-2159857214311285554" label="7939" weight="7939.0"></edge>
+      <edge id="2239" source="-7784712059813151204" target="-273033171021384035" label="3757" weight="3757.0"></edge>
+      <edge id="2240" source="-4060513158963513109" target="-2406154927270380003" label="11909" weight="11909.0"></edge>
+      <edge id="2241" source="-4060513158963513109" target="-2159857214311285554" label="2648" weight="2648.0"></edge>
+      <edge id="2242" source="-4060513158963513109" target="2695305337569098618" label="8959" weight="8959.0"></edge>
+      <edge id="2243" source="-3304550021239131016" target="-2406154927270380003" label="9164" weight="9164.0"></edge>
+      <edge id="2244" source="-3304550021239131016" target="-273033171021384035" label="6497" weight="6497.0"></edge>
+      <edge id="2245" source="-3304550021239131016" target="2695305337569098618" label="7253" weight="7253.0"></edge>
+      <edge id="2246" source="-3304550021239131016" target="3039183585666478258" label="2610" weight="2610.0"></edge>
+      <edge id="2247" source="-2406154927270380003" target="-273033171021384035" label="11040" weight="11040.0"></edge>
+      <edge id="2248" source="-2159857214311285554" target="-273033171021384035" label="2621" weight="2621.0"></edge>
+    </edges>
+  </graph>
+</gexf>

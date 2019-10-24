@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+<div id="app" style="width: 700px;">
+
+    <el-form :model="dynamicValidateForm" ref="dynamicValidateForm" label-width="100px" class="demo-dynamic">
+
+        <el-form-item
+                v-for="(skill, index) in dynamicValidateForm.skills"
+                :label="'技能' + (index+1)"
+                :key="skill.key"
+                :prop="'skills.' + index + '.name'"
+
+        >
+            <!--<el-input v-model="skill.name"></el-input>-->
+            <el-autocomplete
+                    class="inline-input"
+                    v-model="skill.name"
+                    :fetch-suggestions="querySearch"
+                    placeholder="请输入内容"
+                    @select="handleSelect"
+            ></el-autocomplete>
+            <el-slider
+                    v-model="skill.value"
+                    :step="1"
+                    :min="0"
+                    :max="10"
+                    show-stops
+                    show-input>
+            </el-slider>
+            <el-button @click.prevent="removeSkill(skill)">删除</el-button>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="submitForm('dynamicValidateForm')">提交</el-button>
+            <el-button @click="addSkill">新增技能</el-button>
+            <el-button @click="resetForm('dynamicValidateForm')">重置</el-button>
+
+        </el-form-item>
+        <el-tag
+                :key="tag"
+                v-for="tag in results"
+
+                >
+            {{tag}}
+        </el-tag>
+
+
+    </el-form>
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+
+        data() {
+            return {
+                results:[],
+                visible: false,
+                skillList:[{value:"html"},{value:"vue"},{value:"web"},{value:"app"},{value:"javascript"},{value:"dom"},{value:"jquery"},{value:"bootstrap"},{value:"pc"},{value:"div"},{value:"json"},{value:"css"},{value:"d3"},{value:"bom"},{value:"w3c"},{value:"websocket"},{value:"http"},{value:"cocos"},{value:"creator"},{value:"typescript"},{value:"ajax"},{value:"sass"},{value:"react"},{value:"webpack"},{value:"gulp"},{value:"es"},{value:"angular2"},{value:"backbone"},{value:"android"},{value:"php"},{value:"grunt"},{value:"amd"},{value:"shell"},{value:"commonjs"},{value:"angularjs"},{value:"prototype"},{value:"xml"},{value:"yui"},{value:"nodejs"},{value:"git"},{value:"xhtml"},{value:"canvas"},{value:"dhtml"},{value:"java"},{value:"dreamweaver"},{value:"python"},{value:"koa"},{value:"redux"},{value:"ruby"},{value:"ps"},{value:"ui"},{value:"mac"},{value:"jira"},{value:"ecmascript"},{value:"mui"},{value:"wap"},{value:"flash"},{value:"oracle"},{value:"zepto"},{value:"bower"},{value:"adobe"},{value:"dns"},{value:"bug"},{value:"node"},{value:"mvc"},{value:"babel"},{value:"easyui"},{value:"webapp"},{value:"layabox"},{value:"scss"},{value:"jq"},{value:"requirejs"},{value:"b2b"},{value:"mongodb"},{value:"sql"},{value:"script"},{value:"sketch"},{value:"fpga"},{value:"matlab"},{value:"gui"},{value:"swift"},{value:"mvvm"},{value:"xcode"},{value:"google"},{value:"lua"},{value:"linux"},{value:"webview"},{value:"sencha"},{value:"asp"},{value:"mysql"},{value:"c"},{value:"design"},{value:"ip"},{value:"svg"},{value:"cmd"},{value:"servlet"},{value:"amp"},{value:"seo"},{value:"b2c"},{value:"router"},{value:"svn"},{value:"vuex"},{value:"bi"},{value:"redis"},{value:"api"},{value:"saas"},{value:"erp"},{value:"framework"},{value:"yarn"},{value:"safari"},{value:"seajs"},{value:"yii"},{value:"symfony"},{value:"cms"},{value:"wordpress"},{value:"golang"},{value:"studio"},{value:"sdk"},{value:"cordova"},{value:"hbuilder"},{value:"unit"},{value:"scrum"},{value:"retrofit"},{value:"okhttp"},{value:"jni"},{value:"ide"},{value:"socket"},{value:"tcp"},{value:"andriod"},{value:"eclipse"},{value:"xmpp"},{value:"os"},{value:"tob"},{value:"iot"},{value:"weex"},{value:"rn"},{value:"gradle"},{value:"ffmpeg"},{value:"apple"},{value:"stack"},{value:"sqlite"},{value:"gpu"},{value:"gps"},{value:"arm"},{value:"wifi"},{value:"kotlin"},{value:"im"},{value:"as3"},{value:"rtp"},{value:"crm"},{value:"sip"},{value:"opengl"},{value:"jvm"},{value:"mssql"},{value:"sqlserver"},{value:"ar"},{value:"axure"},{value:"idea"},{value:"javaweb"},{value:"ndk"},{value:"arcgis"},{value:"soap"},{value:"cc"},{value:"i2c"},{value:"oop"},{value:"c1"},{value:"wms"},{value:"cbd"},{value:"adb"},{value:"geek"},{value:"rtmp"},{value:"rtsp"},{value:"db"},{value:"ai"},{value:"zigbee"},{value:"io"},{value:"j2ee"},{value:"p2p"},{value:"ftp"},{value:"cvs"},{value:"layout"},{value:"spring"},{value:"ood"},{value:"jd"},{value:"gdb"},{value:"icon"},{value:"painter"},{value:"banner"},{value:"acg"},{value:"ae"},{value:"dmax"},{value:"c4d"},{value:"unity"},{value:"sai"},{value:"ipad"},{value:"coreldraw"},{value:"illustartor"},{value:"arpg"},{value:"ue"},{value:"gt"},{value:"brt"},{value:"excel"},{value:"mmo"},{value:"slg"},{value:"vr"},{value:"cdr"},{value:"rpg"},{value:"cs"},{value:"pm"},{value:"apache"},{value:"centos"},{value:"saltstack"},{value:"springboot"},{value:"cdn"},{value:"squid"},{value:"dhcp"},{value:"vmware"},{value:"tomcat"},{value:"xen"},{value:"puppet"},{value:"kvm"},{value:"zabbix"},{value:"cacti"},{value:"dubbo"},{value:"haproxy"},{value:"nginx"},{value:"activemq"},{value:"lvs"},{value:"lnmp"},{value:"perl"},{value:"k8s"},{value:"openstack"},{value:"elk"},{value:"lamp"},{value:"docker"},{value:"mq"},{value:"mapreduce"},{value:"hdfs"},{value:"zk"},{value:"hive"},{value:"zookeeper"},{value:"unix"},{value:"kafka"},{value:"hadoop"},{value:"sap"},{value:"spark"},{value:"jboss"},{value:"storm"},{value:"rabbitmq"},{value:"ci"},{value:"bash"},{value:"swarm"},{value:"network"},{value:"cdh"},{value:"idc"},{value:"cd"},{value:"hbase"},{value:"office"},{value:"ppt"},{value:"redmine"},{value:"awk"},{value:"weblogic"},{value:"azure"},{value:"liunx"},{value:"twitter"},{value:"mongdb"},{value:"ad"},{value:"base"},{value:"impala"},{value:"elasticsearch"},{value:"ssh"},{value:"memcache"},{value:"rocketmq"},{value:"iis"},{value:"qa"},{value:"mongo"},{value:"vpn"},{value:"postgresql"},{value:"oa"},{value:"mycat"},{value:"bachelor"},{value:"ccna"},{value:"cisco"},{value:"system"},{value:"tcpip"},{value:"h3c"},{value:"ccnp"},{value:"nosql"},{value:"cassandra"},{value:"bgp"},{value:"ospf"},{value:"ota"},{value:"aws"},{value:"cache"},{value:"pv"},{value:"dba"},{value:"resin"},{value:"flume"},{value:"ssl"},{value:"cpu"},{value:"paas"},{value:"django"},{value:"flask"},{value:"jetty"},{value:"solr"},{value:"ccie"},{value:"pr"},{value:"pl"},{value:"db2"},{value:"tornado"},{value:"soa"},{value:"rpc"},{value:"case"},{value:"wireshark"},{value:"pmp"},{value:"emc"},{value:"visio"},{value:"ms"},{value:"bs"},{value:"kettle"},{value:"hr"},{value:"mqtt"},{value:"springcloud"},{value:"cad"},{value:"mangodb"},{value:"xss"},{value:"vba"},{value:"powerpoint"},{value:"dw"},{value:"o2o"},{value:"indesign"},{value:"llustrator"},{value:"dm"},{value:"web2"},{value:"actionscript"},{value:"coredraw"},{value:"mba"},{value:"edm"},{value:"xmind"},{value:"mindmanager"},{value:"mr"},{value:"maya"},{value:"sem"},{value:"flow"},{value:"psd"},{value:"dojo"},{value:"t1"},{value:"cet"},{value:"sns"},{value:"b1"},{value:"tb"},{value:"mmorpg"},{value:"viso"},{value:"sense"},{value:"prd"},{value:"gis"},{value:"powerdesigner"},{value:"vs"},{value:"webservice"},{value:"coreanimation"},{value:"cocoa"},{value:"rest"},{value:"ts"},{value:"interface"},{value:"block"},{value:"core"},{value:"hybird"},{value:"lbs"},{value:"oo"},{value:"gcc"},{value:"quartz"},{value:"ioc"},{value:"mfc"},{value:"ooa"},{value:"stl"},{value:"net"},{value:"phonegap"},{value:"qt"},{value:"opencv"},{value:"boost"},{value:"bitcoin"},{value:"protobuf"},{value:"grpc"},{value:"dau"},{value:"kpi"},{value:"bbs"},{value:"kol"},{value:"ugc"},{value:"mrd"},{value:"springmvc"},{value:"cloud"},{value:"extjs"},{value:"webapi"},{value:"jms"},{value:"mina"},{value:"aop"},{value:"thrift"},{value:"security"},{value:"orm"},{value:"velocity"},{value:"scala"},{value:"acm"},{value:"freemarker"},{value:"selenium"},{value:"tdd"},{value:"j2se"},{value:"ejb"},{value:"etl"},{value:"jmeter"},{value:"appium"},{value:"loadrunner"},{value:"fiddler"},{value:"robotium"},{value:"postman"},{value:"testng"},{value:"qc"},{value:"soapui"},{value:"qtp"},{value:"bugzilla"},{value:"cmmi"},{value:"pcb"},{value:"dsp"},{value:"robot"},{value:"sqoop"},{value:"winform"},{value:"ethereum"},{value:"analysis"},{value:"mot"},{value:"a2"},{value:"a0"},{value:"ka"},{value:"mcu"},{value:"eda"},{value:"rtos"},{value:"spi"},{value:"cortex"},{value:"cadence"},{value:"protel"},{value:"stm32"},{value:"altium"},{value:"iic"},{value:"verilog"},{value:"autocad"},{value:"vhdl"},{value:"proe"},{value:"aso"},{value:"roi"},{value:"gmv"},{value:"pgc"},{value:"cpc"},{value:"caffe"},{value:"theano"},{value:"mxnet"},{value:"tensorflow"},{value:"pytorch"},{value:"slam"},{value:"svm"},{value:"sas"},{value:"cuda"},{value:"spss"},{value:"gbdt"},{value:"shader"},{value:"layui"},{value:"hyperledger"},{value:"kylin"},{value:"sybase"},{value:"webgl"},{value:"firebug"},{value:"codeigniter"},{value:"fis"},{value:"thinkphp"},{value:"smarty"},{value:"cocos2dx"},{value:"laravel"},{value:"webform"},{value:"wpf"},{value:"wcf"},{value:"xpath"},{value:"scrapy"},{value:"cpa"},{value:"ado"},{value:"zend"},{value:"cps"},{value:"ipo"},{value:"ecshop"},{value:"yaf"},{value:"phpcms"},{value:"swoole"},{value:"phalcon"},{value:"dsmax"},{value:"edius"},{value:"tableau"},{value:"hrbp"}],
+                dynamicValidateForm: {
+                    skills: [{
+                        name:'',
+                        value: 5
+                    }]
+
+                }
+            };
+        },
+        methods: {
+            querySearch(queryString, cb) {
+                var skillList = this.skillList;
+
+                var results = queryString ? skillList.filter(this.createFilter(queryString)) : skillList;
+
+                // 调用 callback 返回建议列表的数据
+                cb(results);
+            },
+            createFilter(queryString) {
+                return (skill) => {
+                    return (skill.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+                };
+            },
+            handleSelect(item) {
+                console.log(item);
+            },
+            submitForm(formName) {
+            //     this.$refs[formName].validate((valid) => {
+            //         if (valid) {
+            //             alert('submit!');
+            //         } else {
+            //             console.log('error submit!!');
+            //     return false;
+            // }
+            // });
+
+                axios.post('/predict',
+                    this.dynamicValidateForm.skills
+                )
+                    .then((response)=> {
+                        this.handleResult(response.data);
+                        console.log(this.results);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            handleResult(data){
+                this.results=data;
+                console.log("ddd");
+            },
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+                this.results=[];
+                this.dynamicValidateForm.skills=[{
+                    name:'',
+                    value: 5
+                }];
+            },
+            removeSkill(item) {
+                var index = this.dynamicValidateForm.skills.indexOf(item)
+                if (index !== -1) {
+                    this.dynamicValidateForm.skills.splice(index, 1)
+                }
+            },
+            addSkill() {
+                this.dynamicValidateForm.skills.push({
+                    value: 5,
+                    name:'',
+                    key: Date.now()
+                });
+            }
+        }
+    })
+</script>
+<style>
+    .el-tag + .el-tag {
+        margin-left: 10px;
+    }
+    .button-new-tag {
+        margin-left: 10px;
+        height: 32px;
+        line-height: 30px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .input-new-tag {
+        width: 90px;
+        margin-left: 10px;
+        vertical-align: bottom;
+    }
+</style>
+</html>
